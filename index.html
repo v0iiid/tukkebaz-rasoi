@@ -1,619 +1,1746 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tukkebaz Rasoi – Authentic Flavors, Rustic Comfort</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --cream:#F5F2EB;
-  --black:#050505;
-  --soft-black:#1A1A1A;
-  --gold:#C48A3A;
-  --gold-light:#D4A055;
-  --secondary:#4A4A4A;
-  --border:#E7E0D4;
-  --white:#FDFAF5;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--black);overflow-x:hidden}
-a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tukkebaz Rasoi – Authentic Flavors, Rustic Comfort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
 
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;padding:1.2rem 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(245,242,235,0.92);backdrop-filter:blur(12px);border-bottom:1px solid transparent}
-nav.scrolled{border-bottom-color:var(--border);box-shadow:0 2px 24px rgba(5,5,5,.06)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:.02em}
-.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--secondary);transition:color .2s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{background:var(--black);color:var(--cream);padding:.55rem 1.4rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
-.nav-cta:hover{background:var(--gold)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--black);transition:all .3s}
+        :root {
+            --cream: #F5F2EB;
+            --black: #050505;
+            --soft-black: #1A1A1A;
+            --gold: #C48A3A;
+            --gold-light: #D4A055;
+            --secondary: #4A4A4A;
+            --border: #E7E0D4;
+            --white: #FDFAF5;
+        }
 
-/* HERO */
-#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:10rem 5% 6rem 8%;background:var(--cream)}
-.hero-eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;display:flex;align-items:center;gap:.8rem}
-.hero-eyebrow::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold)}
-.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.8rem);font-weight:300;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-.01em}
-.hero-h1 em{font-style:italic;color:var(--gold)}
-.hero-sub{color:var(--secondary);font-size:.95rem;line-height:1.8;max-width:380px;margin-bottom:2.8rem;font-weight:300}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--black);color:var(--cream);padding:.85rem 2.2rem;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1.5px solid var(--black);cursor:pointer;transition:all .25s;display:inline-block}
-.btn-primary:hover{background:var(--gold);border-color:var(--gold)}
-.btn-outline{background:transparent;color:var(--black);padding:.85rem 2.2rem;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1.5px solid var(--black);cursor:pointer;transition:all .25s;display:inline-block}
-.btn-outline:hover{background:var(--black);color:var(--cream)}
-.hero-right{position:relative;background:var(--soft-black);overflow:hidden}
-.hero-img-grid{position:absolute;inset:0;display:grid;grid-template-rows:1fr 1fr;grid-template-columns:1fr 1fr;gap:3px}
-.hero-img-grid div{background-size:cover;background-position:center;filter:brightness(.82)}
-.hero-img-grid .span2{grid-column:1/-1}
-.hero-badge{position:absolute;bottom:2.5rem;left:-1.5rem;background:var(--gold);color:var(--cream);padding:1.2rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;z-index:2}
-.hero-since{position:absolute;top:2rem;right:2rem;text-align:right;color:rgba(255,255,255,.55);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
-.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--secondary);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;animation:bounce 2s ease-in-out infinite}
-.hero-scroll::after{content:'';display:block;width:1px;height:32px;background:var(--gold);margin-top:.3rem}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-.food-emoji-grid{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-around;padding:1.5rem;gap:3px}
-.food-row{display:flex;gap:3px;flex:1}
-.food-cell{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:2.5rem;transition:all .3s}
-.food-cell:hover{background:rgba(196,138,58,.12);border-color:rgba(196,138,58,.3)}
-.food-cell.big{flex:2}
+        html {
+            scroll-behavior: smooth
+        }
 
-/* TICKER */
-.ticker{background:var(--black);padding:.75rem 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.06)}
-.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:ticker 22s linear infinite}
-.ticker-item{display:inline-flex;align-items:center;gap:.8rem;color:rgba(245,242,235,.5);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:0 2.5rem}
-.ticker-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+        body {
+            font-family: 'Jost', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            overflow-x: hidden
+        }
 
-/* ABOUT */
-#about{padding:7rem 8%;display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center}
-.about-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
-.about-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.2;margin-bottom:1.6rem}
-.about-p{color:var(--secondary);line-height:1.9;font-size:.95rem;font-weight:300;margin-bottom:1rem}
-.about-sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:var(--gold);margin-top:1.8rem}
-.about-visual{position:relative}
-.about-img-main{width:100%;aspect-ratio:4/5;background:var(--soft-black);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:6rem;overflow:hidden;position:relative}
-.about-img-float{position:absolute;width:48%;aspect-ratio:1;bottom:-2rem;right:-2rem;background:var(--cream);border:6px solid var(--cream);display:flex;align-items:center;justify-content:center;font-size:3rem}
-.about-stats{display:flex;gap:2rem;margin-top:2.5rem}
-.stat{border-left:2px solid var(--gold);padding-left:1.2rem}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--black)}
-.stat-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--secondary);margin-top:.2rem}
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+        /* NAV */
 
-/* EXPERIENCE */
-#experience{padding:5rem 8%;background:var(--black)}
-.exp-header{text-align:center;margin-bottom:4rem}
-.exp-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.exp-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--cream);line-height:1.2}
-.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)}
-.exp-card{background:var(--soft-black);padding:3rem 2.5rem;border:1px solid rgba(255,255,255,.04);transition:all .3s;cursor:default;position:relative;overflow:hidden}
-.exp-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.exp-card:hover::before{transform:scaleX(1)}
-.exp-card:hover{background:#222}
-.exp-icon{font-size:2rem;margin-bottom:1.5rem}
-.exp-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--cream);margin-bottom:.8rem;font-weight:400}
-.exp-desc{font-size:.85rem;color:rgba(245,242,235,.45);line-height:1.8;font-weight:300}
-.exp-num{position:absolute;top:1.5rem;right:1.8rem;font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(255,255,255,.04);line-height:1}
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.2rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all .4s;
+            background: rgba(245, 242, 235, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent
+        }
 
-/* GALLERY */
-#gallery{padding:6rem 8%}
-.gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
-.gallery-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;line-height:1.2}
-.gallery-sub{color:var(--secondary);font-size:.85rem;max-width:280px;line-height:1.7;font-weight:300}
-.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:240px 240px;gap:8px}
-.g1{grid-column:1/5;grid-row:1/3;font-size:5rem}
-.g2{grid-column:5/9;font-size:3.5rem}
-.g3{grid-column:9/13;font-size:3.5rem}
-.g4{grid-column:5/8;font-size:3.5rem}
-.g5{grid-column:8/13;font-size:4rem}
-.gcard{background:var(--soft-black);display:flex;align-items:center;justify-content:center;border-radius:2px;position:relative;overflow:hidden;cursor:pointer;transition:all .3s}
-.gcard:hover .goverlay{opacity:1}
-.gcard:hover{transform:scale(.99)}
-.goverlay{position:absolute;inset:0;background:rgba(196,138,58,.15);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
-.goverlay-icon{color:rgba(255,255,255,.9);font-size:1.5rem;letter-spacing:.12em}
-.gallery-tag{position:absolute;bottom:1rem;left:1rem;background:rgba(5,5,5,.7);color:rgba(245,242,235,.8);padding:.35rem .8rem;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(8px)}
+        nav.scrolled {
+            border-bottom-color: var(--border);
+            box-shadow: 0 2px 24px rgba(5, 5, 5, .06)
+        }
 
-/* REVIEWS */
-#reviews{padding:6rem 8%;background:var(--soft-black)}
-.reviews-header{text-align:center;margin-bottom:4rem}
-.reviews-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.reviews-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;color:var(--cream);line-height:1.2}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.review-card{background:var(--black);border:1px solid rgba(255,255,255,.07);padding:2.5rem;position:relative}
-.review-quote{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);line-height:.8;margin-bottom:1.2rem;font-style:italic;opacity:.6}
-.review-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(245,242,235,.8);line-height:1.7;margin-bottom:1.5rem}
-.review-footer{display:flex;align-items:center;gap:1rem;border-top:1px solid rgba(255,255,255,.07);padding-top:1.2rem}
-.review-avatar{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);font-weight:600;flex-shrink:0}
-.review-name{font-size:.82rem;color:var(--cream);letter-spacing:.05em}
-.review-loc{font-size:.7rem;color:rgba(245,242,235,.35);margin-top:.2rem}
-.review-stars{display:flex;gap:2px;margin-left:auto}
-.star{color:var(--gold);font-size:.8rem}
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: .02em
+        }
 
-/* INSTAGRAM */
-#instagram{padding:6rem 8%;text-align:center}
-.ig-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.ig-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;margin-bottom:.6rem}
-.ig-sub{color:var(--secondary);font-size:.9rem;margin-bottom:2.5rem;font-weight:300}
-.ig-handle{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.82rem;letter-spacing:.1em;margin-bottom:3rem;border-bottom:1px solid var(--gold);padding-bottom:.3rem;transition:opacity .2s}
-.ig-handle:hover{opacity:.7}
-.ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
-.ig-post{aspect-ratio:1;background:var(--soft-black);display:flex;align-items:center;justify-content:center;font-size:2.2rem;cursor:pointer;position:relative;overflow:hidden;transition:all .3s}
-.ig-post:hover .ig-hover{opacity:1}
-.ig-hover{position:absolute;inset:0;background:rgba(5,5,5,.65);opacity:0;transition:opacity .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem}
-.ig-likes{color:var(--cream);font-size:.75rem;letter-spacing:.1em}
-.ig-btn{display:inline-flex;align-items:center;gap:.8rem;margin-top:2.5rem;background:transparent;border:1.5px solid var(--black);padding:.85rem 2.2rem;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .25s;color:var(--black)}
-.ig-btn:hover{background:var(--black);color:var(--cream)}
+        .nav-logo span {
+            color: var(--gold)
+        }
 
-/* CONTACT */
-#contact{padding:6rem 8%;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.contact-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
-.contact-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem}
-.contact-p{color:var(--secondary);font-size:.9rem;line-height:1.9;margin-bottom:2.5rem;font-weight:300}
-.contact-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-.contact-item:last-of-type{border-bottom:none}
-.contact-icon{width:38px;height:38px;background:var(--black);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0}
-.contact-detail-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--secondary);margin-bottom:.3rem}
-.contact-detail-val{font-size:.9rem;color:var(--black);line-height:1.6}
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;font-size:.82rem}
-.hours-day{color:var(--secondary)}
-.hours-time{color:var(--black);text-align:right}
-.map-container{border:1px solid var(--border);overflow:hidden;border-radius:2px}
-.map-placeholder{width:100%;height:340px;background:var(--soft-black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;font-size:2rem;color:rgba(255,255,255,.3)}
-.map-address{color:rgba(245,242,235,.5);font-size:.8rem;letter-spacing:.08em;text-align:center;max-width:280px;line-height:1.6}
-.map-open-btn{margin-top:.5rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:2px}
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none
+        }
 
-/* POLICIES */
-#policies{padding:4rem 8%;background:var(--black);border-top:1px solid rgba(255,255,255,.05)}
-.policies-tabs{display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:3rem}
-.ptab{padding:.8rem 2rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,235,.4);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
-.ptab.active{color:var(--gold);border-bottom-color:var(--gold)}
-.policy-content{display:none;color:rgba(245,242,235,.6);font-size:.88rem;line-height:1.9;font-weight:300;max-width:780px}
-.policy-content.active{display:block}
-.policy-content h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cream);margin:1.5rem 0 .6rem;font-weight:400}
-.policy-content p{margin-bottom:1rem}
+        .nav-links a {
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            transition: color .2s
+        }
 
-/* FOOTER */
-footer{background:var(--soft-black);border-top:1px solid rgba(255,255,255,.06);padding:4rem 8% 2rem}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-.footer-brand .nav-logo{font-size:1.6rem;display:inline-block;margin-bottom:1rem}
-.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(245,242,235,.35);font-size:.95rem;line-height:1.7;max-width:260px}
-.footer-col-title{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:.7rem}
-.footer-links a{color:rgba(245,242,235,.45);font-size:.83rem;transition:color .2s;display:block}
-.footer-links a:hover{color:var(--gold)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-copy{color:rgba(245,242,235,.2);font-size:.72rem;letter-spacing:.08em}
-.footer-ig{display:flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.72rem;letter-spacing:.1em;transition:opacity .2s}
-.footer-ig:hover{opacity:.7}
+        .nav-links a:hover {
+            color: var(--gold)
+        }
 
-/* MOBILE */
-@media(max-width:900px){
-  #hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .hero-left{padding:8rem 6% 5rem}
-  #about{grid-template-columns:1fr;gap:3rem;padding:5rem 6%}
-  .about-img-float{display:none}
-  .exp-grid{grid-template-columns:1fr;gap:1px}
-  .reviews-grid{grid-template-columns:1fr}
-  .ig-grid{grid-template-columns:repeat(3,1fr)}
-  #contact{grid-template-columns:1fr;gap:3rem;padding:5rem 6%}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
-  .footer-brand{grid-column:1/-1}
-  .gallery-grid{grid-template-columns:repeat(6,1fr);grid-template-rows:160px 160px}
-  .g1{grid-column:1/4;grid-row:1/3}
-  .g2{grid-column:4/7}
-  .g3{grid-column:4/7}
-  .g4{grid-column:1/4}
-  .g5{grid-column:4/7}
-  .nav-links{display:none}
-  .hamburger{display:flex}
-}
+        .nav-cta {
+            background: var(--black);
+            color: var(--cream);
+            padding: .55rem 1.4rem;
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background .2s
+        }
 
-/* ANIMATIONS */
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
-.fade-in.visible{opacity:1;transform:none}
-.fade-in-left{opacity:0;transform:translateX(-24px);transition:opacity .7s ease,transform .7s ease}
-.fade-in-left.visible{opacity:1;transform:none}
-</style>
+        .nav-cta:hover {
+            background: var(--gold)
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--black);
+            transition: all .3s
+        }
+        /* HERO */
+
+        #hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10rem 5% 6rem 8%;
+            background: var(--cream)
+        }
+
+        .hero-eyebrow {
+            font-size: .7rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: .8rem
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 1px;
+            background: var(--gold)
+        }
+
+        .hero-h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 5vw, 4.8rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            letter-spacing: -.01em
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--gold)
+        }
+
+        .hero-sub {
+            color: var(--secondary);
+            font-size: .95rem;
+            line-height: 1.8;
+            max-width: 380px;
+            margin-bottom: 2.8rem;
+            font-weight: 300
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--cream);
+            padding: .85rem 2.2rem;
+            font-family: 'Jost', sans-serif;
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border: 1.5px solid var(--black);
+            cursor: pointer;
+            transition: all .25s;
+            display: inline-block
+        }
+
+        .btn-primary:hover {
+            background: var(--gold);
+            border-color: var(--gold)
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--black);
+            padding: .85rem 2.2rem;
+            font-family: 'Jost', sans-serif;
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border: 1.5px solid var(--black);
+            cursor: pointer;
+            transition: all .25s;
+            display: inline-block
+        }
+
+        .btn-outline:hover {
+            background: var(--black);
+            color: var(--cream)
+        }
+
+        .hero-right {
+            position: relative;
+            background: var(--soft-black);
+            overflow: hidden
+        }
+
+        .hero-img-grid {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px
+        }
+
+        .hero-img-grid div {
+            background-size: cover;
+            background-position: center;
+            filter: brightness(.82)
+        }
+
+        .hero-img-grid .span2 {
+            grid-column: 1/-1
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 2.5rem;
+            left: -1.5rem;
+            background: var(--gold);
+            color: var(--cream);
+            padding: 1.2rem 1.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            z-index: 2
+        }
+
+        .hero-since {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            text-align: right;
+            color: rgba(255, 255, 255, .55);
+            font-size: .7rem;
+            letter-spacing: .15em;
+            text-transform: uppercase
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+            color: var(--secondary);
+            font-size: .65rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            animation: bounce 2s ease-in-out infinite
+        }
+
+        .hero-scroll::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 32px;
+            background: var(--gold);
+            margin-top: .3rem
+        }
+
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0)
+            }
+            50% {
+                transform: translateX(-50%) translateY(6px)
+            }
+        }
+
+        .food-emoji-grid {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 1.5rem;
+            gap: 3px
+        }
+
+        .food-row {
+            display: flex;
+            gap: 3px;
+            flex: 1
+        }
+
+        .food-cell {
+            flex: 1;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all .3s
+        }
+
+        .food-cell:hover {
+            background: rgba(196, 138, 58, .12);
+            border-color: rgba(196, 138, 58, .3)
+        }
+
+        .food-cell.big {
+            flex: 2
+        }
+        /* TICKER */
+
+        .ticker {
+            background: var(--black);
+            padding: .75rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .ticker-inner {
+            display: flex;
+            gap: 0;
+            white-space: nowrap;
+            animation: ticker 22s linear infinite
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            color: rgba(245, 242, 235, .5);
+            font-size: .7rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            padding: 0 2.5rem
+        }
+
+        .ticker-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(0)
+            }
+            to {
+                transform: translateX(-50%)
+            }
+        }
+        /* ABOUT */
+
+        #about {
+            padding: 7rem 8%;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 5rem;
+            align-items: center
+        }
+
+        .about-label {
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem
+        }
+
+        .about-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.6rem
+        }
+
+        .about-p {
+            color: var(--secondary);
+            line-height: 1.9;
+            font-size: .95rem;
+            font-weight: 300;
+            margin-bottom: 1rem
+        }
+
+        .about-sig {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-top: 1.8rem
+        }
+
+        .about-visual {
+            position: relative
+        }
+
+        .about-img-main {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--soft-black);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            overflow: hidden;
+            position: relative
+        }
+
+        .about-img-float {
+            position: absolute;
+            width: 48%;
+            aspect-ratio: 1;
+            bottom: -2rem;
+            right: -2rem;
+            background: var(--cream);
+            border: 6px solid var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem
+        }
+
+        .stat {
+            border-left: 2px solid var(--gold);
+            padding-left: 1.2rem
+        }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--black)
+        }
+
+        .stat-label {
+            font-size: .7rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            margin-top: .2rem
+        }
+        /* EXPERIENCE */
+
+        #experience {
+            padding: 5rem 8%;
+            background: var(--black)
+        }
+
+        .exp-header {
+            text-align: center;
+            margin-bottom: 4rem
+        }
+
+        .exp-label {
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem
+        }
+
+        .exp-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            color: var(--cream);
+            line-height: 1.2
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(255, 255, 255, .06)
+        }
+
+        .exp-card {
+            background: var(--soft-black);
+            padding: 3rem 2.5rem;
+            border: 1px solid rgba(255, 255, 255, .04);
+            transition: all .3s;
+            cursor: default;
+            position: relative;
+            overflow: hidden
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s
+        }
+
+        .exp-card:hover::before {
+            transform: scaleX(1)
+        }
+
+        .exp-card:hover {
+            background: #222
+        }
+
+        .exp-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem
+        }
+
+        .exp-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: .8rem;
+            font-weight: 400
+        }
+
+        .exp-desc {
+            font-size: .85rem;
+            color: rgba(245, 242, 235, .45);
+            line-height: 1.8;
+            font-weight: 300
+        }
+
+        .exp-num {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .04);
+            line-height: 1
+        }
+        /* GALLERY */
+
+        #gallery {
+            padding: 6rem 8%
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem
+        }
+
+        .gallery-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 300;
+            line-height: 1.2
+        }
+
+        .gallery-sub {
+            color: var(--secondary);
+            font-size: .85rem;
+            max-width: 280px;
+            line-height: 1.7;
+            font-weight: 300
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 240px 240px;
+            gap: 8px
+        }
+
+        .g1 {
+            grid-column: 1/5;
+            grid-row: 1/3;
+            font-size: 5rem
+        }
+
+        .g2 {
+            grid-column: 5/9;
+            font-size: 3.5rem
+        }
+
+        .g3 {
+            grid-column: 9/13;
+            font-size: 3.5rem
+        }
+
+        .g4 {
+            grid-column: 5/8;
+            font-size: 3.5rem
+        }
+
+        .g5 {
+            grid-column: 8/13;
+            font-size: 4rem
+        }
+
+        .gcard {
+            background: var(--soft-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all .3s
+        }
+
+        .gcard:hover .goverlay {
+            opacity: 1
+        }
+
+        .gcard:hover {
+            transform: scale(.99)
+        }
+
+        .goverlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(196, 138, 58, .15);
+            opacity: 0;
+            transition: opacity .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .goverlay-icon {
+            color: rgba(255, 255, 255, .9);
+            font-size: 1.5rem;
+            letter-spacing: .12em
+        }
+
+        .gallery-tag {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(5, 5, 5, .7);
+            color: rgba(245, 242, 235, .8);
+            padding: .35rem .8rem;
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px)
+        }
+        /* REVIEWS */
+
+        #reviews {
+            padding: 6rem 8%;
+            background: var(--soft-black)
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 4rem
+        }
+
+        .reviews-label {
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem
+        }
+
+        .reviews-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 300;
+            color: var(--cream);
+            line-height: 1.2
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem
+        }
+
+        .review-card {
+            background: var(--black);
+            border: 1px solid rgba(255, 255, 255, .07);
+            padding: 2.5rem;
+            position: relative
+        }
+
+        .review-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            line-height: .8;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+            opacity: .6
+        }
+
+        .review-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: rgba(245, 242, 235, .8);
+            line-height: 1.7;
+            margin-bottom: 1.5rem
+        }
+
+        .review-footer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            padding-top: 1.2rem
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+            font-weight: 600;
+            flex-shrink: 0
+        }
+
+        .review-name {
+            font-size: .82rem;
+            color: var(--cream);
+            letter-spacing: .05em
+        }
+
+        .review-loc {
+            font-size: .7rem;
+            color: rgba(245, 242, 235, .35);
+            margin-top: .2rem
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 2px;
+            margin-left: auto
+        }
+
+        .star {
+            color: var(--gold);
+            font-size: .8rem
+        }
+        /* INSTAGRAM */
+
+        #instagram {
+            padding: 6rem 8%;
+            text-align: center
+        }
+
+        .ig-label {
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem
+        }
+
+        .ig-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 300;
+            margin-bottom: .6rem
+        }
+
+        .ig-sub {
+            color: var(--secondary);
+            font-size: .9rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300
+        }
+
+        .ig-handle {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--gold);
+            font-size: .82rem;
+            letter-spacing: .1em;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: .3rem;
+            transition: opacity .2s
+        }
+
+        .ig-handle:hover {
+            opacity: .7
+        }
+
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px
+        }
+
+        .ig-post {
+            aspect-ratio: 1;
+            background: var(--soft-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all .3s
+        }
+
+        .ig-post:hover .ig-hover {
+            opacity: 1
+        }
+
+        .ig-hover {
+            position: absolute;
+            inset: 0;
+            background: rgba(5, 5, 5, .65);
+            opacity: 0;
+            transition: opacity .2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem
+        }
+
+        .ig-likes {
+            color: var(--cream);
+            font-size: .75rem;
+            letter-spacing: .1em
+        }
+
+        .ig-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            margin-top: 2.5rem;
+            background: transparent;
+            border: 1.5px solid var(--black);
+            padding: .85rem 2.2rem;
+            font-family: 'Jost', sans-serif;
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .25s;
+            color: var(--black)
+        }
+
+        .ig-btn:hover {
+            background: var(--black);
+            color: var(--cream)
+        }
+        /* CONTACT */
+
+        #contact {
+            padding: 6rem 8%;
+            background: var(--cream);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start
+        }
+
+        .contact-label {
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem
+        }
+
+        .contact-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem
+        }
+
+        .contact-p {
+            color: var(--secondary);
+            font-size: .9rem;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+            font-weight: 300
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .contact-item:last-of-type {
+            border-bottom: none
+        }
+
+        .contact-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.1rem;
+            flex-shrink: 0
+        }
+
+        .contact-detail-label {
+            font-size: .65rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            margin-bottom: .3rem
+        }
+
+        .contact-detail-val {
+            font-size: .9rem;
+            color: var(--black);
+            line-height: 1.6
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .5rem;
+            font-size: .82rem
+        }
+
+        .hours-day {
+            color: var(--secondary)
+        }
+
+        .hours-time {
+            color: var(--black);
+            text-align: right
+        }
+
+        .map-container {
+            border: 1px solid var(--border);
+            overflow: hidden;
+            border-radius: 2px
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 340px;
+            background: var(--soft-black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, .3)
+        }
+
+        .map-address {
+            color: rgba(245, 242, 235, .5);
+            font-size: .8rem;
+            letter-spacing: .08em;
+            text-align: center;
+            max-width: 280px;
+            line-height: 1.6
+        }
+
+        .map-open-btn {
+            margin-top: .5rem;
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 2px
+        }
+        /* POLICIES */
+
+        #policies {
+            padding: 4rem 8%;
+            background: var(--black);
+            border-top: 1px solid rgba(255, 255, 255, .05)
+        }
+
+        .policies-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            margin-bottom: 3rem
+        }
+
+        .ptab {
+            padding: .8rem 2rem;
+            font-size: .75rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(245, 242, 235, .4);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: all .2s
+        }
+
+        .ptab.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold)
+        }
+
+        .policy-content {
+            display: none;
+            color: rgba(245, 242, 235, .6);
+            font-size: .88rem;
+            line-height: 1.9;
+            font-weight: 300;
+            max-width: 780px
+        }
+
+        .policy-content.active {
+            display: block
+        }
+
+        .policy-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin: 1.5rem 0 .6rem;
+            font-weight: 400
+        }
+
+        .policy-content p {
+            margin-bottom: 1rem
+        }
+        /* FOOTER */
+
+        footer {
+            background: var(--soft-black);
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            padding: 4rem 8% 2rem
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem
+        }
+
+        .footer-brand .nav-logo {
+            font-size: 1.6rem;
+            display: inline-block;
+            margin-bottom: 1rem
+        }
+
+        .footer-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: rgba(245, 242, 235, .35);
+            font-size: .95rem;
+            line-height: 1.7;
+            max-width: 260px
+        }
+
+        .footer-col-title {
+            font-size: .65rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.2rem
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .7rem
+        }
+
+        .footer-links a {
+            color: rgba(245, 242, 235, .45);
+            font-size: .83rem;
+            transition: color .2s;
+            display: block
+        }
+
+        .footer-links a:hover {
+            color: var(--gold)
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem
+        }
+
+        .footer-copy {
+            color: rgba(245, 242, 235, .2);
+            font-size: .72rem;
+            letter-spacing: .08em
+        }
+
+        .footer-ig {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--gold);
+            font-size: .72rem;
+            letter-spacing: .1em;
+            transition: opacity .2s
+        }
+
+        .footer-ig:hover {
+            opacity: .7
+        }
+        /* MOBILE */
+
+        @media(max-width:900px) {
+            #hero {
+                grid-template-columns: 1fr
+            }
+            .hero-right {
+                display: none
+            }
+            .hero-left {
+                padding: 8rem 6% 5rem
+            }
+            #about {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 5rem 6%
+            }
+            .about-img-float {
+                display: none
+            }
+            .exp-grid {
+                grid-template-columns: 1fr;
+                gap: 1px
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr
+            }
+            .ig-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+            #contact {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 5rem 6%
+            }
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem
+            }
+            .footer-brand {
+                grid-column: 1/-1
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: 160px 160px
+            }
+            .g1 {
+                grid-column: 1/4;
+                grid-row: 1/3
+            }
+            .g2 {
+                grid-column: 4/7
+            }
+            .g3 {
+                grid-column: 4/7
+            }
+            .g4 {
+                grid-column: 1/4
+            }
+            .g5 {
+                grid-column: 4/7
+            }
+            .nav-links {
+                display: none
+            }
+            .hamburger {
+                display: flex
+            }
+        }
+        /* ANIMATIONS */
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: none
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-24px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: none
+        }
+    </style>
 </head>
+
 <body>
 
-<nav id="navbar">
-  <div class="nav-logo">Tukkebaz<span> Rasoi</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">Story</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Visit</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Book a Visit</a>
-  <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
-</nav>
+    <nav id="navbar">
+        <div class="nav-logo">Tukkebaz<span> Rasoi</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">Story</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Visit</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Book a Visit</a>
+        <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+    </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Mountain Café · Uttarakhand</div>
-    <h1 class="hero-h1">Authentic Flavors,<br><em>Rustic Comfort</em></h1>
-    <p class="hero-sub">Nestled in the heart of Supi village, we craft homemade meals from locally sourced mountain ingredients — where every plate tells a story.</p>
-    <div class="hero-btns">
-      <a href="#experience" class="btn-primary">Explore Menu</a>
-      <a href="#contact" class="btn-outline">Visit Us</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="food-emoji-grid">
-      <div class="food-row">
-        <div class="food-cell big">🍛</div>
-        <div class="food-cell">🫖</div>
-      </div>
-      <div class="food-row">
-        <div class="food-cell">🌿</div>
-        <div class="food-cell big">🥘</div>
-      </div>
-      <div class="food-row">
-        <div class="food-cell">☕</div>
-        <div class="food-cell">🍞</div>
-        <div class="food-cell">🥗</div>
-      </div>
-    </div>
-    <div class="hero-badge">"Made with mountain love"</div>
-    <div class="hero-since">Est. Supi, Uttarakhand<br>Himalayan Highlands</div>
-  </div>
-  <div class="hero-scroll">Scroll</div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item"><span class="ticker-dot"></span>Homemade Recipes</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Fresh Mountain Ingredients</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Cozy Café Atmosphere</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Local Uttarakhand Flavors</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Hygienic Kitchen</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Village to Table</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Open Daily</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Homemade Recipes</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Fresh Mountain Ingredients</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Cozy Café Atmosphere</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Local Uttarakhand Flavors</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Hygienic Kitchen</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Village to Table</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Open Daily</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="fade-in-left">
-    <div class="about-label">Our Story</div>
-    <h2 class="about-h2">Where the Mountains<br>Taste Like Home</h2>
-    <p class="about-p">Tukkebaz Rasoi was born from a simple belief — that the best food comes from honest hands, fresh soil, and a warm hearth. Perched in the serene village of Supi, Uttarakhand, our café is a sanctuary for those seeking real flavors amidst the Himalayan air.</p>
-    <p class="about-p">We draw from generations of Pahadi culinary traditions — slow-cooked dals, hand-rolled rotis, seasonal saag, and chai brewed with mountain herbs. Every dish is an act of love, prepared with locally sourced ingredients and zero shortcuts.</p>
-    <p class="about-p">Whether you're a traveler seeking warmth or a local craving comfort, Tukkebaz Rasoi welcomes you to our table.</p>
-    <div class="about-sig">— The Rasoi Family</div>
-    <div class="about-stats">
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Homemade</div></div>
-      <div class="stat"><div class="stat-num">Local</div><div class="stat-label">Ingredients</div></div>
-      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Mountain Views</div></div>
-    </div>
-  </div>
-  <div class="about-visual fade-in">
-    <div class="about-img-main">🏔️<br><span style="font-size:1rem;margin-top:.5rem;display:block;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase">Supi, Uttarakhand</span></div>
-    <div class="about-img-float">🍲</div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="exp-header fade-in">
-    <div class="exp-label">What We Offer</div>
-    <h2 class="exp-h2">The Signature<br><em style="font-style:italic;color:var(--gold)">Rasoi Experience</em></h2>
-  </div>
-  <div class="exp-grid">
-    <div class="exp-card fade-in">
-      <div class="exp-icon">🫕</div>
-      <div class="exp-num">01</div>
-      <div class="exp-title">Homemade Meals</div>
-      <div class="exp-desc">Recipes passed down through generations. Every dish is crafted from scratch — no shortcuts, no packets, no compromise on taste.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <div class="exp-icon">🌿</div>
-      <div class="exp-num">02</div>
-      <div class="exp-title">Fresh Local Ingredients</div>
-      <div class="exp-desc">We source directly from Supi's farms and mountain valleys — seasonal vegetables, aromatic herbs, and pure spring water.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <div class="exp-icon">🏡</div>
-      <div class="exp-num">03</div>
-      <div class="exp-title">Cozy Café Atmosphere</div>
-      <div class="exp-desc">Rustic wooden interiors, warm lighting, and the sound of the mountains. A place where time slows down with every sip.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <div class="exp-icon">⛰️</div>
-      <div class="exp-num">04</div>
-      <div class="exp-title">Mountain Café Vibe</div>
-      <div class="exp-desc">Open-air seating with Himalayan panoramas. Breathe in the pine air while your chai warms both hands and heart.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <div class="exp-icon">✨</div>
-      <div class="exp-num">05</div>
-      <div class="exp-title">Hygienic Standards</div>
-      <div class="exp-desc">Our kitchen operates with professional hygiene protocols. Clean, bright, inspected — because we care about what goes into your body.</div>
-    </div>
-    <div class="exp-card fade-in">
-      <div class="exp-icon">☕</div>
-      <div class="exp-num">06</div>
-      <div class="exp-title">Pahadi Chai & Specials</div>
-      <div class="exp-desc">Our signature mountain chai, local mithai, and seasonal specials that change with the harvest — because fresh is a philosophy.</div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="gallery-header fade-in">
-    <div>
-      <div style="font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Food & Ambience</div>
-      <h2 class="gallery-h2">A Feast<br><em style="font-style:italic">for the Eyes</em></h2>
-    </div>
-    <div class="gallery-sub">Step inside Tukkebaz Rasoi through our curated gallery of flavors, moments, and mountain light.</div>
-  </div>
-  <div class="gallery-grid fade-in">
-    <div class="gcard g1">🍛<div class="goverlay"><div class="goverlay-icon">Dal Tadka</div></div><div class="gallery-tag">Signature Dal</div></div>
-    <div class="gcard g2">🫖<div class="goverlay"><div class="goverlay-icon">Pahadi Chai</div></div><div class="gallery-tag">Morning Chai</div></div>
-    <div class="gcard g3">🌄<div class="goverlay"><div class="goverlay-icon">Mountain View</div></div><div class="gallery-tag">Café Ambience</div></div>
-    <div class="gcard g4">🍞<div class="goverlay"><div class="goverlay-icon">Fresh Roti</div></div><div class="gallery-tag">Homemade Bread</div></div>
-    <div class="gcard g5">🥘<div class="goverlay"><div class="goverlay-icon">Seasonal Sabzi</div></div><div class="gallery-tag">Farm Fresh</div></div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews">
-  <div class="reviews-header fade-in">
-    <div class="reviews-label">Guest Stories</div>
-    <h2 class="reviews-h2">What Our Guests<br><em style="font-style:italic">Are Saying</em></h2>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card fade-in">
-      <div class="review-quote">"</div>
-      <div class="review-text">The dal and roti took me straight back to my grandmother's kitchen. I didn't expect to find food this authentic in a café setting. Absolutely magical experience amidst the mountains.</div>
-      <div class="review-footer">
-        <div class="review-avatar">PK</div>
-        <div><div class="review-name">Priya Kapoor</div><div class="review-loc">Delhi · Traveler</div></div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      </div>
-    </div>
-    <div class="review-card fade-in">
-      <div class="review-quote">"</div>
-      <div class="review-text">Stumbled upon Tukkebaz Rasoi while trekking near Supi. The chai was unlike anything I've had — brewed with local herbs, served with a smile. The café itself feels like a warm hug.</div>
-      <div class="review-footer">
-        <div class="review-avatar">AS</div>
-        <div><div class="review-name">Arjun Singh</div><div class="review-loc">Dehradun · Hiker</div></div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      </div>
-    </div>
-    <div class="review-card fade-in">
-      <div class="review-quote">"</div>
-      <div class="review-text">Every detail — the wooden décor, the mountain air, the freshly made food — tells you this place is built with genuine love. My family's new favourite stop in Uttarakhand without question.</div>
-      <div class="review-footer">
-        <div class="review-avatar">RM</div>
-        <div><div class="review-name">Rekha Mehta</div><div class="review-loc">Mumbai · Food Blogger</div></div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INSTAGRAM -->
-<section id="instagram">
-  <div class="ig-label fade-in">Follow Our Journey</div>
-  <h2 class="ig-h2 fade-in">We're Live on<br><em style="font-style:italic;font-family:'Cormorant Garamond',serif">Instagram</em></h2>
-  <p class="ig-sub fade-in">Daily specials, behind-the-scenes kitchen moments, and mountain sunrise shots.</p>
-  <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="ig-handle fade-in">@tukkebaz_rasoi</a>
-  <div class="ig-grid fade-in">
-    <div class="ig-post">🍛<div class="ig-hover"><div class="ig-likes">♥ 142</div></div></div>
-    <div class="ig-post">☕<div class="ig-hover"><div class="ig-likes">♥ 98</div></div></div>
-    <div class="ig-post">🌄<div class="ig-hover"><div class="ig-likes">♥ 234</div></div></div>
-    <div class="ig-post">🥘<div class="ig-hover"><div class="ig-likes">♥ 167</div></div></div>
-    <div class="ig-post">🫖<div class="ig-hover"><div class="ig-likes">♥ 89</div></div></div>
-    <div class="ig-post">🌿<div class="ig-hover"><div class="ig-likes">♥ 201</div></div></div>
-  </div>
-  <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="ig-btn">Follow on Instagram →</a>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="fade-in-left">
-    <div class="contact-label">Come Find Us</div>
-    <h2 class="contact-h2">Visit Tukkebaz<br><em style="font-style:italic;font-family:'Cormorant Garamond',serif">Rasoi</em></h2>
-    <p class="contact-p">We're nestled in the quiet village of Supi, near The Lookout Cottage — a short, scenic drive through the Kumaon hills. Come hungry.</p>
-    <div class="contact-item">
-      <div class="contact-icon">📍</div>
-      <div>
-        <div class="contact-detail-label">Address</div>
-        <div class="contact-detail-val">Vill Supi, near The Lookout Cottage<br>Post Supi, Uttarakhand 263138</div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">📞</div>
-      <div>
-        <div class="contact-detail-label">Phone / WhatsApp</div>
-        <div class="contact-detail-val"><a href="tel:+919370344539" style="color:var(--gold)">+91 93703 44539</a></div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">📸</div>
-      <div>
-        <div class="contact-detail-label">Instagram</div>
-        <div class="contact-detail-val"><a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" style="color:var(--gold)">@tukkebaz_rasoi</a></div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">🕐</div>
-      <div style="flex:1">
-        <div class="contact-detail-label">Opening Hours</div>
-        <div class="hours-grid" style="margin-top:.5rem">
-          <span class="hours-day">Monday – Friday</span><span class="hours-time">8:00 AM – 9:00 PM</span>
-          <span class="hours-day">Saturday</span><span class="hours-time">7:30 AM – 10:00 PM</span>
-          <span class="hours-day">Sunday</span><span class="hours-time">8:00 AM – 8:00 PM</span>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-left">
+            <div class="hero-eyebrow">Mountain Café · Uttarakhand</div>
+            <h1 class="hero-h1">Authentic Flavors,<br><em>Rustic Comfort</em></h1>
+            <p class="hero-sub">Nestled in the heart of Supi village, we craft homemade meals from locally sourced mountain ingredients — where every plate tells a story.</p>
+            <div class="hero-btns">
+                <a href="#experience" class="btn-primary">Explore Menu</a>
+                <a href="#contact" class="btn-outline">Visit Us</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="fade-in">
-    <div class="map-container">
-      <div class="map-placeholder">
-        🗺️
-        <div class="map-address">Vill Supi, near The Lookout Cottage<br>Post Supi, Uttarakhand 263138, India</div>
-        <a href="https://maps.google.com/?q=Supi+Uttarakhand+India" target="_blank" class="map-open-btn">Open in Google Maps →</a>
-      </div>
-    </div>
-    <div style="margin-top:2rem;padding:1.8rem;background:var(--soft-black);color:var(--cream)">
-      <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Quick Contact</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:1rem;font-style:italic;color:rgba(245,242,235,.8)">Have a question or want to reserve a spot?</div>
-      <a href="https://wa.me/919370344539" target="_blank" class="btn-primary" style="display:inline-block;margin-right:.8rem;margin-bottom:.8rem">WhatsApp Us</a>
-      <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="btn-outline" style="display:inline-block;color:var(--cream);border-color:rgba(245,242,235,.3)">Instagram DM</a>
-    </div>
-  </div>
-</section>
+        <div class="hero-right">
+            <div class="food-emoji-grid">
+                <div class="food-row">
+                    <div class="food-cell big">🍛</div>
+                    <div class="food-cell">🫖</div>
+                </div>
+                <div class="food-row">
+                    <div class="food-cell">🌿</div>
+                    <div class="food-cell big">🥘</div>
+                </div>
+                <div class="food-row">
+                    <div class="food-cell">☕</div>
+                    <div class="food-cell">🍞</div>
+                    <div class="food-cell">🥗</div>
+                </div>
+            </div>
+            <div class="hero-badge">"Made with mountain love"</div>
+            <div class="hero-since">Est. Supi, Uttarakhand<br>Himalayan Highlands</div>
+        </div>
+        <div class="hero-scroll">Scroll</div>
+    </section>
 
-<!-- POLICIES -->
-<section id="policies">
-  <div style="margin-bottom:2rem">
-    <div style="font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Legal</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--cream);font-weight:300">Our Policies</div>
-  </div>
-  <div class="policies-tabs">
-    <div class="ptab active" onclick="showPolicy('privacy')">Privacy Policy</div>
-    <div class="ptab" onclick="showPolicy('terms')">Terms of Service</div>
-    <div class="ptab" onclick="showPolicy('refund')">Refund Policy</div>
-  </div>
-  <div id="privacy" class="policy-content active">
-    <h3>Privacy Policy — Tukkebaz Rasoi</h3>
-    <p><em>Last updated: January 2025</em></p>
-    <h3>Information We Collect</h3>
-    <p>When you contact us via phone, WhatsApp, or Instagram, we may collect your name, phone number, and any messages you share. We use this information solely to respond to your inquiries and process reservations or orders.</p>
-    <h3>How We Use Your Information</h3>
-    <p>Your personal information is used only to communicate with you about your queries, orders, or reservations at Tukkebaz Rasoi. We do not sell, rent, or share your personal data with any third parties for marketing purposes.</p>
-    <h3>Data Retention</h3>
-    <p>We retain contact information only for as long as necessary to fulfill your service request. You may request deletion of your data at any time by contacting us directly.</p>
-    <h3>Third-Party Platforms</h3>
-    <p>Our Instagram page and WhatsApp Business account are operated under the respective privacy policies of Meta Platforms, Inc. Please review their policies for information on data handling on those platforms.</p>
-    <h3>Contact Us</h3>
-    <p>For any privacy concerns, reach us at +91 93703 44539 or via Instagram @tukkebaz_rasoi.</p>
-  </div>
-  <div id="terms" class="policy-content">
-    <h3>Terms of Service — Tukkebaz Rasoi</h3>
-    <p><em>Last updated: January 2025</em></p>
-    <h3>General</h3>
-    <p>By visiting Tukkebaz Rasoi or placing an order through any of our channels (in-person, WhatsApp, Instagram), you agree to abide by these terms. We reserve the right to refuse service to anyone for reasons we deem appropriate.</p>
-    <h3>Food & Allergens</h3>
-    <p>While we take all reasonable care, our kitchen handles a range of ingredients including nuts, dairy, gluten, and spices. Please inform us of any dietary restrictions or allergies before ordering. We cannot guarantee a completely allergen-free environment.</p>
-    <h3>Reservations</h3>
-    <p>Reservations can be made via WhatsApp or Instagram DM. A reservation is confirmed only upon our explicit acknowledgment. We recommend booking in advance for weekends and holidays.</p>
-    <h3>Pricing</h3>
-    <p>All prices are in Indian Rupees (INR) and are inclusive of applicable taxes unless stated otherwise. Prices may change without prior notice due to seasonal availability of ingredients.</p>
-    <h3>Conduct</h3>
-    <p>We maintain a warm, respectful environment for all guests. Any form of disrespectful or abusive behaviour toward our staff or other guests may result in being asked to leave the premises.</p>
-  </div>
-  <div id="refund" class="policy-content">
-    <h3>Refund Policy — Tukkebaz Rasoi</h3>
-    <p><em>Last updated: January 2025</em></p>
-    <h3>Dine-In Orders</h3>
-    <p>If you are unsatisfied with your food, please bring it to our attention immediately. We will do our best to resolve the issue by replacing the dish or offering a suitable alternative. Refunds for dine-in orders are at the discretion of the café management.</p>
-    <h3>Takeaway & Pre-Orders</h3>
-    <p>Once a takeaway order has been prepared, we are unable to offer refunds unless the food is found to be unfit for consumption. In such cases, please contact us within 30 minutes of receiving your order.</p>
-    <h3>Cancellation Policy</h3>
-    <p>Reservations cancelled more than 2 hours before the scheduled time will not incur any charges. Cancellations made within 2 hours of the reservation may not be refundable if special preparation has been undertaken.</p>
-    <h3>How to Request a Refund</h3>
-    <p>Contact us directly via WhatsApp at +91 93703 44539 or visit us in person. We aim to resolve all concerns fairly and promptly — your satisfaction matters to us.</p>
-    <h3>No Refund Circumstances</h3>
-    <p>Refunds will not be issued for change of mind after food has been served, or for orders that have been fully consumed.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="nav-logo">Tukkebaz<span style="color:var(--gold)"> Rasoi</span></div>
-      <div class="footer-tagline">Authentic Pahadi flavors, crafted with mountain love in Supi, Uttarakhand.</div>
+    <!-- TICKER -->
+    <div class="ticker">
+        <div class="ticker-inner">
+            <span class="ticker-item"><span class="ticker-dot"></span>Homemade Recipes</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Fresh Mountain Ingredients</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Cozy Café Atmosphere</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Local Uttarakhand Flavors</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Hygienic Kitchen</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Village to Table</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Open Daily</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Homemade Recipes</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Fresh Mountain Ingredients</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Cozy Café Atmosphere</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Local Uttarakhand Flavors</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Hygienic Kitchen</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Village to Table</span>
+            <span class="ticker-item"><span class="ticker-dot"></span>Open Daily</span>
+        </div>
     </div>
-    <div>
-      <div class="footer-col-title">Visit</div>
-      <ul class="footer-links">
-        <li><a href="#about">Our Story</a></li>
-        <li><a href="#experience">The Experience</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Find Us</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="tel:+919370344539">+91 93703 44539</a></li>
-        <li><a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank">@tukkebaz_rasoi</a></li>
-        <li><a href="https://wa.me/919370344539" target="_blank">WhatsApp Us</a></li>
-        <li style="color:rgba(245,242,235,.3);font-size:.8rem;line-height:1.6;margin-top:.4rem">Supi, Uttarakhand 263138</li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Legal</div>
-      <ul class="footer-links">
-        <li><a href="#policies" onclick="showPolicy('privacy')">Privacy Policy</a></li>
-        <li><a href="#policies" onclick="showPolicy('terms')">Terms of Service</a></li>
-        <li><a href="#policies" onclick="showPolicy('refund')">Refund Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Tukkebaz Rasoi. All rights reserved. Supi, Uttarakhand, India.</div>
-    <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="footer-ig">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      @tukkebaz_rasoi
-    </a>
-  </div>
-</footer>
 
-<script>
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if(window.scrollY > 60) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
-});
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="fade-in-left">
+            <div class="about-label">Our Story</div>
+            <h2 class="about-h2">Where the Mountains<br>Taste Like Home</h2>
+            <p class="about-p">Tukkebaz Rasoi was born from a simple belief — that the best food comes from honest hands, fresh soil, and a warm hearth. Perched in the serene village of Supi, Uttarakhand, our café is a sanctuary for those seeking real flavors amidst the
+                Himalayan air.</p>
+            <p class="about-p">We draw from generations of Pahadi culinary traditions — slow-cooked dals, hand-rolled rotis, seasonal saag, and chai brewed with mountain herbs. Every dish is an act of love, prepared with locally sourced ingredients and zero shortcuts.</p>
+            <p class="about-p">Whether you're a traveler seeking warmth or a local craving comfort, Tukkebaz Rasoi welcomes you to our table.</p>
+            <div class="about-sig">— The Rasoi Family</div>
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Homemade</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">Local</div>
+                    <div class="stat-label">Ingredients</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">∞</div>
+                    <div class="stat-label">Mountain Views</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-visual fade-in">
+            <div class="about-img-main">🏔️<br><span style="font-size:1rem;margin-top:.5rem;display:block;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase">Supi, Uttarakhand</span></div>
+            <div class="about-img-float">🍲</div>
+        </div>
+    </section>
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-in, .fade-in-left').forEach(el => observer.observe(el));
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="exp-header fade-in">
+            <div class="exp-label">What We Offer</div>
+            <h2 class="exp-h2">The Signature<br><em style="font-style:italic;color:var(--gold)">Rasoi Experience</em></h2>
+        </div>
+        <div class="exp-grid">
+            <div class="exp-card fade-in">
+                <div class="exp-icon">🫕</div>
+                <div class="exp-num">01</div>
+                <div class="exp-title">Homemade Meals</div>
+                <div class="exp-desc">Recipes passed down through generations. Every dish is crafted from scratch — no shortcuts, no packets, no compromise on taste.</div>
+            </div>
+            <div class="exp-card fade-in">
+                <div class="exp-icon">🌿</div>
+                <div class="exp-num">02</div>
+                <div class="exp-title">Fresh Local Ingredients</div>
+                <div class="exp-desc">We source directly from Supi's farms and mountain valleys — seasonal vegetables, aromatic herbs, and pure spring water.</div>
+            </div>
+            <div class="exp-card fade-in">
+                <div class="exp-icon">🏡</div>
+                <div class="exp-num">03</div>
+                <div class="exp-title">Cozy Café Atmosphere</div>
+                <div class="exp-desc">Rustic wooden interiors, warm lighting, and the sound of the mountains. A place where time slows down with every sip.</div>
+            </div>
+            <div class="exp-card fade-in">
+                <div class="exp-icon">⛰️</div>
+                <div class="exp-num">04</div>
+                <div class="exp-title">Mountain Café Vibe</div>
+                <div class="exp-desc">Open-air seating with Himalayan panoramas. Breathe in the pine air while your chai warms both hands and heart.</div>
+            </div>
+            <div class="exp-card fade-in">
+                <div class="exp-icon">✨</div>
+                <div class="exp-num">05</div>
+                <div class="exp-title">Hygienic Standards</div>
+                <div class="exp-desc">Our kitchen operates with professional hygiene protocols. Clean, bright, inspected — because we care about what goes into your body.</div>
+            </div>
+            <div class="exp-card fade-in">
+                <div class="exp-icon">☕</div>
+                <div class="exp-num">06</div>
+                <div class="exp-title">Pahadi Chai & Specials</div>
+                <div class="exp-desc">Our signature mountain chai, local mithai, and seasonal specials that change with the harvest — because fresh is a philosophy.</div>
+            </div>
+        </div>
+    </section>
 
-function showPolicy(id) {
-  document.querySelectorAll('.policy-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.ptab').forEach(el => el.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const tabs = document.querySelectorAll('.ptab');
-  const map = {privacy:0, terms:1, refund:2};
-  tabs[map[id]].classList.add('active');
-}
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="gallery-header fade-in">
+            <div>
+                <div style="font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Food & Ambience</div>
+                <h2 class="gallery-h2">A Feast<br><em style="font-style:italic">for the Eyes</em></h2>
+            </div>
+            <div class="gallery-sub">Step inside Tukkebaz Rasoi through our curated gallery of flavors, moments, and mountain light.</div>
+        </div>
+        <div class="gallery-grid fade-in">
+            <div class="gcard g1">🍛
+                <div class="goverlay">
+                    <div class="goverlay-icon">Dal Tadka</div>
+                </div>
+                <div class="gallery-tag">Signature Dal</div>
+            </div>
+            <div class="gcard g2">🫖
+                <div class="goverlay">
+                    <div class="goverlay-icon">Pahadi Chai</div>
+                </div>
+                <div class="gallery-tag">Morning Chai</div>
+            </div>
+            <div class="gcard g3">🌄
+                <div class="goverlay">
+                    <div class="goverlay-icon">Mountain View</div>
+                </div>
+                <div class="gallery-tag">Café Ambience</div>
+            </div>
+            <div class="gcard g4">🍞
+                <div class="goverlay">
+                    <div class="goverlay-icon">Fresh Roti</div>
+                </div>
+                <div class="gallery-tag">Homemade Bread</div>
+            </div>
+            <div class="gcard g5">🥘
+                <div class="goverlay">
+                    <div class="goverlay-icon">Seasonal Sabzi</div>
+                </div>
+                <div class="gallery-tag">Farm Fresh</div>
+            </div>
+        </div>
+    </section>
 
-const ham = document.getElementById('ham');
-let mobileOpen = false;
-ham.addEventListener('click', () => {
-  mobileOpen = !mobileOpen;
-  const links = document.querySelector('.nav-links');
-  if(mobileOpen) {
-    links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:65px;left:0;right:0;background:rgba(245,242,235,0.98);padding:2rem 8%;gap:1.5rem;z-index:99;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)';
-  } else {
-    links.style.cssText = 'display:none';
-  }
-});
-</script>
+    <!-- REVIEWS -->
+    <section id="reviews">
+        <div class="reviews-header fade-in">
+            <div class="reviews-label">Guest Stories</div>
+            <h2 class="reviews-h2">What Our Guests<br><em style="font-style:italic">Are Saying</em></h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card fade-in">
+                <div class="review-quote">"</div>
+                <div class="review-text">The dal and roti took me straight back to my grandmother's kitchen. I didn't expect to find food this authentic in a café setting. Absolutely magical experience amidst the mountains.</div>
+                <div class="review-footer">
+                    <div class="review-avatar">PK</div>
+                    <div>
+                        <div class="review-name">Priya Kapoor</div>
+                        <div class="review-loc">Delhi · Traveler</div>
+                    </div>
+                    <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                </div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="review-quote">"</div>
+                <div class="review-text">Stumbled upon Tukkebaz Rasoi while trekking near Supi. The chai was unlike anything I've had — brewed with local herbs, served with a smile. The café itself feels like a warm hug.</div>
+                <div class="review-footer">
+                    <div class="review-avatar">AS</div>
+                    <div>
+                        <div class="review-name">Arjun Singh</div>
+                        <div class="review-loc">Dehradun · Hiker</div>
+                    </div>
+                    <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                </div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="review-quote">"</div>
+                <div class="review-text">Every detail — the wooden décor, the mountain air, the freshly made food — tells you this place is built with genuine love. My family's new favourite stop in Uttarakhand without question.</div>
+                <div class="review-footer">
+                    <div class="review-avatar">RM</div>
+                    <div>
+                        <div class="review-name">Rekha Mehta</div>
+                        <div class="review-loc">Mumbai · Food Blogger</div>
+                    </div>
+                    <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section id="instagram">
+        <div class="ig-label fade-in">Follow Our Journey</div>
+        <h2 class="ig-h2 fade-in">We're Live on<br><em style="font-style:italic;font-family:'Cormorant Garamond',serif">Instagram</em></h2>
+        <p class="ig-sub fade-in">Daily specials, behind-the-scenes kitchen moments, and mountain sunrise shots.</p>
+        <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="ig-handle fade-in">@tukkebaz_rasoi</a>
+        <div class="ig-grid fade-in">
+            <div class="ig-post">🍛
+                <div class="ig-hover">
+                    <div class="ig-likes">♥ 142</div>
+                </div>
+            </div>
+            <div class="ig-post">☕
+                <div class="ig-hover">
+                    <div class="ig-likes">♥ 98</div>
+                </div>
+            </div>
+            <div class="ig-post">🌄
+                <div class="ig-hover">
+                    <div class="ig-likes">♥ 234</div>
+                </div>
+            </div>
+            <div class="ig-post">🥘
+                <div class="ig-hover">
+                    <div class="ig-likes">♥ 167</div>
+                </div>
+            </div>
+            <div class="ig-post">🫖
+                <div class="ig-hover">
+                    <div class="ig-likes">♥ 89</div>
+                </div>
+            </div>
+            <div class="ig-post">🌿
+                <div class="ig-hover">
+                    <div class="ig-likes">♥ 201</div>
+                </div>
+            </div>
+        </div>
+        <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="ig-btn">Follow on Instagram →</a>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="fade-in-left">
+            <div class="contact-label">Come Find Us</div>
+            <h2 class="contact-h2">Visit Tukkebaz<br><em style="font-style:italic;font-family:'Cormorant Garamond',serif">Rasoi</em></h2>
+            <p class="contact-p">We're nestled in the quiet village of Supi, near The Lookout Cottage — a short, scenic drive through the Kumaon hills. Come hungry.</p>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <div class="contact-detail-label">Address</div>
+                    <div class="contact-detail-val">Vill Supi, near The Lookout Cottage<br>Post Supi, Uttarakhand 263138</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <div class="contact-detail-label">Phone / WhatsApp</div>
+                    <div class="contact-detail-val"><a href="tel:+919370344539" style="color:var(--gold)">+91 93703 44539</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📸</div>
+                <div>
+                    <div class="contact-detail-label">Instagram</div>
+                    <div class="contact-detail-val"><a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" style="color:var(--gold)">@tukkebaz_rasoi</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🕐</div>
+                <div style="flex:1">
+                    <div class="contact-detail-label">Opening Hours</div>
+                    <div class="hours-grid" style="margin-top:.5rem">
+                        <span class="hours-day">Monday – Friday</span><span class="hours-time">8:00 AM – 9:00 PM</span>
+                        <span class="hours-day">Saturday</span><span class="hours-time">7:30 AM – 10:00 PM</span>
+                        <span class="hours-day">Sunday</span><span class="hours-time">8:00 AM – 8:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fade-in">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    🗺️
+                    <div class="map-address">Vill Supi, near The Lookout Cottage<br>Post Supi, Uttarakhand 263138, India</div>
+                    <a href="https://maps.google.com/?q=Supi+Uttarakhand+India" target="_blank" class="map-open-btn">Open in Google Maps →</a>
+                </div>
+            </div>
+            <div style="margin-top:2rem;padding:1.8rem;background:var(--soft-black);color:var(--cream)">
+                <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Quick Contact</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:1rem;font-style:italic;color:rgba(245,242,235,.8)">Have a question or want to reserve a spot?</div>
+                <a href="https://wa.me/919370344539" target="_blank" class="btn-primary" style="display:inline-block;margin-right:.8rem;margin-bottom:.8rem">WhatsApp Us</a>
+                <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="btn-outline" style="display:inline-block;color:var(--cream);border-color:rgba(245,242,235,.3)">Instagram DM</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POLICIES -->
+    <section id="policies">
+        <div style="margin-bottom:2rem">
+            <div style="font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Legal</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--cream);font-weight:300">Our Policies</div>
+        </div>
+        <div class="policies-tabs">
+            <div class="ptab active" onclick="showPolicy('privacy')">Privacy Policy</div>
+            <div class="ptab" onclick="showPolicy('terms')">Terms of Service</div>
+            <div class="ptab" onclick="showPolicy('refund')">Refund Policy</div>
+        </div>
+        <div id="privacy" class="policy-content active">
+            <h3>Privacy Policy — Tukkebaz Rasoi</h3>
+            <p><em>Last updated: January 2025</em></p>
+            <h3>Information We Collect</h3>
+            <p>When you contact us via phone, WhatsApp, or Instagram, we may collect your name, phone number, and any messages you share. We use this information solely to respond to your inquiries and process reservations or orders.</p>
+            <h3>How We Use Your Information</h3>
+            <p>Your personal information is used only to communicate with you about your queries, orders, or reservations at Tukkebaz Rasoi. We do not sell, rent, or share your personal data with any third parties for marketing purposes.</p>
+            <h3>Data Retention</h3>
+            <p>We retain contact information only for as long as necessary to fulfill your service request. You may request deletion of your data at any time by contacting us directly.</p>
+            <h3>Third-Party Platforms</h3>
+            <p>Our Instagram page and WhatsApp Business account are operated under the respective privacy policies of Meta Platforms, Inc. Please review their policies for information on data handling on those platforms.</p>
+            <h3>Contact Us</h3>
+            <p>For any privacy concerns, reach us at +91 93703 44539 or via Instagram @tukkebaz_rasoi.</p>
+        </div>
+        <div id="terms" class="policy-content">
+            <h3>Terms of Service — Tukkebaz Rasoi</h3>
+            <p><em>Last updated: January 2025</em></p>
+            <h3>General</h3>
+            <p>By visiting Tukkebaz Rasoi or placing an order through any of our channels (in-person, WhatsApp, Instagram), you agree to abide by these terms. We reserve the right to refuse service to anyone for reasons we deem appropriate.</p>
+            <h3>Food & Allergens</h3>
+            <p>While we take all reasonable care, our kitchen handles a range of ingredients including nuts, dairy, gluten, and spices. Please inform us of any dietary restrictions or allergies before ordering. We cannot guarantee a completely allergen-free
+                environment.</p>
+            <h3>Reservations</h3>
+            <p>Reservations can be made via WhatsApp or Instagram DM. A reservation is confirmed only upon our explicit acknowledgment. We recommend booking in advance for weekends and holidays.</p>
+            <h3>Pricing</h3>
+            <p>All prices are in Indian Rupees (INR) and are inclusive of applicable taxes unless stated otherwise. Prices may change without prior notice due to seasonal availability of ingredients.</p>
+            <h3>Conduct</h3>
+            <p>We maintain a warm, respectful environment for all guests. Any form of disrespectful or abusive behaviour toward our staff or other guests may result in being asked to leave the premises.</p>
+        </div>
+        <div id="refund" class="policy-content">
+            <h3>Refund Policy — Tukkebaz Rasoi</h3>
+            <p><em>Last updated: January 2025</em></p>
+            <h3>Dine-In Orders</h3>
+            <p>If you are unsatisfied with your food, please bring it to our attention immediately. We will do our best to resolve the issue by replacing the dish or offering a suitable alternative. Refunds for dine-in orders are at the discretion of the
+                café management.</p>
+            <h3>Takeaway & Pre-Orders</h3>
+            <p>Once a takeaway order has been prepared, we are unable to offer refunds unless the food is found to be unfit for consumption. In such cases, please contact us within 30 minutes of receiving your order.</p>
+            <h3>Cancellation Policy</h3>
+            <p>Reservations cancelled more than 2 hours before the scheduled time will not incur any charges. Cancellations made within 2 hours of the reservation may not be refundable if special preparation has been undertaken.</p>
+            <h3>How to Request a Refund</h3>
+            <p>Contact us directly via WhatsApp at +91 93703 44539 or visit us in person. We aim to resolve all concerns fairly and promptly — your satisfaction matters to us.</p>
+            <h3>No Refund Circumstances</h3>
+            <p>Refunds will not be issued for change of mind after food has been served, or for orders that have been fully consumed.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div style="color:white" class="nav-logo">Tukkebaz<span style="color:var(--gold)"> Rasoi</span></div>
+                <div class="footer-tagline">Authentic Pahadi flavors, crafted with mountain love in Supi, Uttarakhand.</div>
+            </div>
+            <div>
+                <div class="footer-col-title">Visit</div>
+                <ul class="footer-links">
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#experience">The Experience</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Find Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">Contact</div>
+                <ul class="footer-links">
+                    <li><a href="tel:+919370344539">+91 93703 44539</a></li>
+                    <li><a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank">@tukkebaz_rasoi</a></li>
+                    <li><a href="https://wa.me/919370344539" target="_blank">WhatsApp Us</a></li>
+                    <li style="color:rgba(245,242,235,.3);font-size:.8rem;line-height:1.6;margin-top:.4rem">Supi, Uttarakhand 263138</li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">Legal</div>
+                <ul class="footer-links">
+                    <li><a href="#policies" onclick="showPolicy('privacy')">Privacy Policy</a></li>
+                    <li><a href="#policies" onclick="showPolicy('terms')">Terms of Service</a></li>
+                    <li><a href="#policies" onclick="showPolicy('refund')">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">© 2025 Tukkebaz Rasoi. All rights reserved. Supi, Uttarakhand, India.</div>
+            <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="footer-ig">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>                @tukkebaz_rasoi
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, {
+            threshold: 0.12
+        });
+        document.querySelectorAll('.fade-in, .fade-in-left').forEach(el => observer.observe(el));
+
+        function showPolicy(id) {
+            document.querySelectorAll('.policy-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.ptab').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            const tabs = document.querySelectorAll('.ptab');
+            const map = {
+                privacy: 0,
+                terms: 1,
+                refund: 2
+            };
+            tabs[map[id]].classList.add('active');
+        }
+
+        const ham = document.getElementById('ham');
+        let mobileOpen = false;
+        ham.addEventListener('click', () => {
+            mobileOpen = !mobileOpen;
+            const links = document.querySelector('.nav-links');
+            if (mobileOpen) {
+                links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:65px;left:0;right:0;background:rgba(245,242,235,0.98);padding:2rem 8%;gap:1.5rem;z-index:99;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)';
+            } else {
+                links.style.cssText = 'display:none';
+            }
+        });
+    </script>
 </body>
+
 </html>

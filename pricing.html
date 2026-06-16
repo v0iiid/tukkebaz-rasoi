@@ -1267,6 +1267,266 @@
             opacity: 1;
             transform: none
         }
+        /* MENU / PRICING PAGE */
+
+        .menu-hero {
+            padding: 9rem 8% 3rem;
+            text-align: center;
+            background: var(--cream)
+        }
+
+        .menu-hero .hero-eyebrow {
+            justify-content: center;
+            color: var(--gold)
+        }
+
+        .menu-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.1
+        }
+
+        .menu-hero h1 em {
+            font-style: italic;
+            color: var(--gold)
+        }
+
+        .menu-hero p {
+            color: var(--secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+            font-size: .95rem
+        }
+
+        .menu-section {
+            padding: 3.5rem 8%;
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        .menu-section.dark {
+            background: var(--black);
+            max-width: none
+        }
+
+        .menu-section-head {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.2rem
+        }
+
+        .menu-section.dark .menu-section-head {
+            border-bottom-color: rgba(255, 255, 255, .1)
+        }
+
+        .menu-section-label {
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: .8rem
+        }
+
+        .menu-section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 300;
+            line-height: 1.2
+        }
+
+        .menu-section.dark .menu-section-title {
+            color: var(--cream)
+        }
+
+        .menu-section-sub {
+            color: var(--secondary);
+            font-size: .88rem;
+            margin-top: .6rem;
+            font-weight: 300;
+            max-width: 620px;
+            line-height: 1.7
+        }
+
+        .menu-section.dark .menu-section-sub {
+            color: rgba(245, 242, 235, .45)
+        }
+
+        /* price cards (rooms / services / camping) */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem
+        }
+
+        .price-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow .25s, transform .25s
+        }
+
+        .price-card:hover {
+            box-shadow: 0 12px 30px rgba(5, 5, 5, .07);
+            transform: translateY(-3px)
+        }
+
+        .price-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: .6rem
+        }
+
+        .price-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2
+        }
+
+        .price-tag {
+            font-family: 'Jost', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--gold);
+            white-space: nowrap
+        }
+
+        .price-tag small {
+            font-size: .68rem;
+            font-weight: 400;
+            color: var(--secondary);
+            letter-spacing: .05em;
+            display: block;
+            text-align: right
+        }
+
+        .price-card-desc {
+            color: var(--secondary);
+            font-size: .85rem;
+            line-height: 1.7;
+            font-weight: 300;
+            flex: 1
+        }
+
+        .price-card-meta {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: .72rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .price-badge {
+            background: rgba(196, 138, 58, .12);
+            color: var(--gold);
+            padding: .25rem .7rem;
+            border-radius: 2px;
+            font-size: .65rem;
+            letter-spacing: .12em
+        }
+
+        /* food menu list (dark) */
+        .food-cats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem 4rem
+        }
+
+        .food-cat-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            padding-bottom: .5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .food-row-item {
+            display: flex;
+            align-items: baseline;
+            gap: .8rem;
+            padding: .55rem 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, .08)
+        }
+
+        .food-name {
+            color: rgba(245, 242, 235, .85);
+            font-size: .92rem;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .veg-dot {
+            width: 11px;
+            height: 11px;
+            border: 1.5px solid #4caf50;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 2px
+        }
+
+        .veg-dot::after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: #4caf50;
+            border-radius: 50%
+        }
+
+        .veg-dot.nonveg {
+            border-color: #d8453b
+        }
+
+        .veg-dot.nonveg::after {
+            background: #d8453b
+        }
+
+        .food-dots {
+            flex: 1;
+            border-bottom: 1px dotted rgba(255, 255, 255, .15);
+            transform: translateY(-4px)
+        }
+
+        .food-price {
+            color: var(--gold);
+            font-size: .92rem;
+            font-weight: 500;
+            white-space: nowrap
+        }
+
+        .menu-note {
+            text-align: center;
+            color: var(--secondary);
+            font-size: .8rem;
+            font-weight: 300;
+            padding: 1rem 8% 0;
+            line-height: 1.7
+        }
+
+        @media(max-width:700px) {
+            .food-cats {
+                grid-template-columns: 1fr;
+                gap: 2rem
+            }
+        }
     </style>
 </head>
 
@@ -1275,404 +1535,155 @@
     <nav id="navbar">
         <div class="nav-logo">Tukkebaz<span> Rasoi</span></div>
         <ul class="nav-links">
-            <li><a href="#about">Story</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#contact">Visit</a></li>
+            <li><a href="index.html#about">Story</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="index.html#contact">Visit</a></li>
             <li><a href="pricing.html">Menu &amp; Pricing</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Book a Visit</a>
+        <a href="index.html#contact" class="nav-cta">Book a Visit</a>
         <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
     </nav>
 
-    <!-- HERO -->
-    <section id="hero">
-        <div class="hero-left">
-            <div class="hero-eyebrow">Mountain Café · Uttarakhand</div>
-            <h1 class="hero-h1">Authentic Flavors,<br><em>Rustic Comfort</em></h1>
-            <p class="hero-sub">Nestled in the heart of Supi village, we craft homemade meals from locally sourced mountain ingredients — where every plate tells a story.</p>
-            <div class="hero-btns">
-                <a href="pricing.html" class="btn-primary">Menu &amp; Pricing</a>
-                <a href="#contact" class="btn-outline">Visit Us</a>
-            </div>
-        </div>
-        <div class="hero-right">
-            <div class="food-emoji-grid">
-                <div style="display: flex; flex-direction: column; ">
-
-                    <!-- First row (full width image) -->
-                    <div style="width: 100%;">
-                        <img src="./fourth.png" alt="tukkabaz-rasoi view" style="width: 100%; height: 240px; object-fit: contain;" />
-                    </div>
-
-                    <!-- Second row (3 images in a row) -->
-                    <div style="display: flex; gap: 10px;">
-
-                        <div style="flex: 1;">
-                            <img src="./first.png" alt="tukkabaz-rasoi view" style="width: 100%; height: 250px; object-fit: cover;" />
-                        </div>
-
-                        <div style="flex: 1;">
-                            <img src="./sec.png" alt="tukkabaz-rasoi view" style="width: 100%; height: 250px; object-fit: cover;" />
-                        </div>
-
-                        <div style="flex: 1;">
-                            <img src="./third.png" alt="tukkabaz-rasoi view" style="width: 100%; height: 250px; object-fit: cover;" />
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="hero-badge">"Made with mountain love"</div>
-                <div class="hero-since">Est. Supi, Uttarakhand<br>Himalayan Highlands</div>
-            </div>
-
+    <!-- MENU HERO -->
+    <section class="menu-hero fade-in">
+        <div class="hero-eyebrow">Menu &amp; Pricing</div>
+        <h1>Our Products &amp; <em>Services</em></h1>
+        <p>Everything we offer in the hills of Supi &amp; Satkhol — from a cosy mountain stay and curated adventures to our café kitchen. All prices are in Indian Rupees (₹) and inclusive of applicable taxes.</p>
     </section>
 
-    <!-- TICKER -->
-    <div class="ticker">
-        <div class="ticker-inner">
-            <span class="ticker-item"><span class="ticker-dot"></span>Homemade Recipes</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Fresh Mountain Ingredients</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Cozy Café Atmosphere</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Local Uttarakhand Flavors</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Hygienic Kitchen</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Village to Table</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Open Daily</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Homemade Recipes</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Fresh Mountain Ingredients</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Cozy Café Atmosphere</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Local Uttarakhand Flavors</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Hygienic Kitchen</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Village to Table</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Open Daily</span>
+    <!-- STAYS -->
+    <section class="menu-section fade-in">
+        <div class="menu-section-head">
+            <div class="menu-section-label">Stays</div>
+            <h2 class="menu-section-title">Rooms &amp; Cottages</h2>
+            <p class="menu-section-sub">Comfortable mountain stays with breakfast and high-speed Wi-Fi.</p>
         </div>
-    </div>
-
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="fade-in-left">
-            <div class="about-label">Our Story</div>
-            <h2 class="about-h2">Where the Mountains<br>Taste Like Home</h2>
-            <p class="about-p">Tukkebaz Rasoi was born from a simple belief — that the best food comes from honest hands, fresh soil, and a warm hearth. Perched in the serene village of Supi, Uttarakhand, our café is a sanctuary for those seeking real flavors amidst the
-                Himalayan air.</p>
-            <p class="about-p">We draw from generations of Pahadi culinary traditions — slow-cooked dals, hand-rolled rotis, seasonal saag, and chai brewed with mountain herbs. Every dish is an act of love, prepared with locally sourced ingredients and zero shortcuts.</p>
-            <p class="about-p">Whether you're a traveler seeking warmth or a local craving comfort, Tukkebaz Rasoi welcomes you to our table.</p>
-            <div class="about-sig">— The Rasoi Family</div>
-            <div class="about-stats">
-                <div class="stat">
-                    <div class="stat-num">100%</div>
-                    <div class="stat-label">Homemade</div>
+        <div class="price-grid">
+            <div class="price-card">
+                <div class="price-card-top">
+                    <div class="price-card-title">Kaafal Cottage</div>
+                    <div class="price-tag">₹3,200<small>per night</small></div>
                 </div>
-                <div class="stat">
-                    <div class="stat-num">Local</div>
-                    <div class="stat-label">Ingredients</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num">∞</div>
-                    <div class="stat-label">Mountain Views</div>
-                </div>
-            </div>
-        </div>
-        <div class="about-visual fade-in">
-            <div class="about-img-main">🏔️<br><span style="font-size:1rem;margin-top:.5rem;display:block;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase">Supi, Uttarakhand</span></div>
-            <div class="about-img-float">🍲</div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-        <div class="exp-header fade-in">
-            <div class="exp-label">What We Offer</div>
-            <h2 class="exp-h2">The Signature<br><em style="font-style:italic;color:var(--gold)">Rasoi Experience</em></h2>
-        </div>
-        <div class="exp-grid">
-            <div class="exp-card fade-in">
-                <div class="exp-icon">🫕</div>
-                <div class="exp-num">01</div>
-                <div class="exp-title">Homemade Meals</div>
-                <div class="exp-desc">Recipes passed down through generations. Every dish is crafted from scratch — no shortcuts, no packets, no compromise on taste.</div>
-            </div>
-            <div class="exp-card fade-in">
-                <div class="exp-icon">🌿</div>
-                <div class="exp-num">02</div>
-                <div class="exp-title">Fresh Local Ingredients</div>
-                <div class="exp-desc">We source directly from Supi's farms and mountain valleys — seasonal vegetables, aromatic herbs, and pure spring water.</div>
-            </div>
-            <div class="exp-card fade-in">
-                <div class="exp-icon">🏡</div>
-                <div class="exp-num">03</div>
-                <div class="exp-title">Cozy Café Atmosphere</div>
-                <div class="exp-desc">Rustic wooden interiors, warm lighting, and the sound of the mountains. A place where time slows down with every sip.</div>
-            </div>
-            <div class="exp-card fade-in">
-                <div class="exp-icon">⛰️</div>
-                <div class="exp-num">04</div>
-                <div class="exp-title">Mountain Café Vibe</div>
-                <div class="exp-desc">Open-air seating with Himalayan panoramas. Breathe in the pine air while your chai warms both hands and heart.</div>
-            </div>
-            <div class="exp-card fade-in">
-                <div class="exp-icon">✨</div>
-                <div class="exp-num">05</div>
-                <div class="exp-title">Hygienic Standards</div>
-                <div class="exp-desc">Our kitchen operates with professional hygiene protocols. Clean, bright, inspected — because we care about what goes into your body.</div>
-            </div>
-            <div class="exp-card fade-in">
-                <div class="exp-icon">☕</div>
-                <div class="exp-num">06</div>
-                <div class="exp-title">Pahadi Chai & Specials</div>
-                <div class="exp-desc">Our signature mountain chai, local mithai, and seasonal specials that change with the harvest — because fresh is a philosophy.</div>
+                <p class="price-card-desc">Spacious private room with mountain views, breakfast, and high-speed Wi-Fi in Village Satkhol. Made for slow mornings, fresh air, and easy access to nearby cafés and viewpoints. Free parking available.</p>
+                <div class="price-card-meta"><span>Sleeps 2 guests</span><span class="price-badge">Available</span></div>
             </div>
         </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery">
-        <div class="gallery-header fade-in">
+    <!-- EXPERIENCES & SERVICES -->
+    <section class="menu-section fade-in">
+        <div class="menu-section-head">
+            <div class="menu-section-label">Experiences</div>
+            <h2 class="menu-section-title">Adventure &amp; Travel Services</h2>
+            <p class="menu-section-sub">Curated mountain experiences and local travel support. Starting prices shown; final amount may vary with duration, distance, and group size.</p>
+        </div>
+        <div class="price-grid">
+            <div class="price-card">
+                <div class="price-card-top">
+                    <div class="price-card-title">Sky Cycling</div>
+                    <div class="price-tag">₹400<small>per person</small></div>
+                </div>
+                <p class="price-card-desc">Cycle on a suspended cable high above the valley with breathtaking views of the Himalayas. A safe, exciting adventure suitable for all age groups.</p>
+                <div class="price-card-meta"><span>Adventure</span><span class="price-badge">Available</span></div>
+            </div>
+            <div class="price-card">
+                <div class="price-card-top">
+                    <div class="price-card-title">Bhaloo's Village Camp &amp; Café</div>
+                    <div class="price-tag">₹1,500<small>per night</small></div>
+                </div>
+                <p class="price-card-desc">Overnight camping package with bonfire and meals — a rustic night under the mountain stars.</p>
+                <div class="price-card-meta"><span>Camping</span><span class="price-badge">Available</span></div>
+            </div>
+            <div class="price-card">
+                <div class="price-card-top">
+                    <div class="price-card-title">Scooty Rental</div>
+                    <div class="price-tag">₹900<small>per day</small></div>
+                </div>
+                <p class="price-card-desc">Daily self-drive scooty rental for exploring nearby stays, cafés, and viewpoints at your own pace.</p>
+                <div class="price-card-meta"><span>Rental</span><span class="price-badge">Available</span></div>
+            </div>
+            <div class="price-card">
+                <div class="price-card-top">
+                    <div class="price-card-title">Cab &amp; Taxi Service</div>
+                    <div class="price-tag">₹3,500<small>starting from</small></div>
+                </div>
+                <p class="price-card-desc">Book or call a cab/taxi for local sightseeing, outstation trips, or railway-station pickups. Fare depends on route and distance.</p>
+                <div class="price-card-meta"><span>Travel</span><span class="price-badge">Available</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAFÉ MENU -->
+    <section class="menu-section dark fade-in">
+        <div class="menu-section-head">
+            <div class="menu-section-label">Tukkebaz Café &amp; Restaurant</div>
+            <h2 class="menu-section-title">Café Menu</h2>
+            <p class="menu-section-sub">Fresh local dishes, coffee, and stunning views of the Satkhol valley. Dine-in or order through our kitchen. <span class="veg-dot" style="vertical-align:middle"></span> Veg &nbsp; <span class="veg-dot nonveg" style="vertical-align:middle"></span> Non-veg</p>
+        </div>
+        <div class="food-cats">
             <div>
-                <div style="font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Food & Ambience</div>
-                <h2 class="gallery-h2">A Feast<br><em style="font-style:italic">for the Eyes</em></h2>
+                <div class="food-cat-title">Maggi &amp; Quick Bites</div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Plain Maggi</span><span class="food-dots"></span><span class="food-price">₹50</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Vegetable Maggi</span><span class="food-dots"></span><span class="food-price">₹60</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Butter Maggi</span><span class="food-dots"></span><span class="food-price">₹80</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Cheese Maggi</span><span class="food-dots"></span><span class="food-price">₹100</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Egg Maggi</span><span class="food-dots"></span><span class="food-price">₹100</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Bun Maska (4 pcs)</span><span class="food-dots"></span><span class="food-price">₹60</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Bun Butter</span><span class="food-dots"></span><span class="food-price">₹60</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>French Fries</span><span class="food-dots"></span><span class="food-price">₹150</span></div>
             </div>
-            <div class="gallery-sub">Step inside Tukkebaz Rasoi through our curated gallery of flavors, moments, and mountain light.</div>
+            <div>
+                <div class="food-cat-title">Breads, Parathas &amp; Eggs</div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Tawa Roti</span><span class="food-dots"></span><span class="food-price">₹15</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Butter Roti</span><span class="food-dots"></span><span class="food-price">₹20</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Plain Paratha</span><span class="food-dots"></span><span class="food-price">₹25</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Aloo Paratha</span><span class="food-dots"></span><span class="food-price">₹60</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Aloo Pyaj Paratha</span><span class="food-dots"></span><span class="food-price">₹80</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Paneer Paratha</span><span class="food-dots"></span><span class="food-price">₹100</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Mix Paratha</span><span class="food-dots"></span><span class="food-price">₹120</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Bread Omelette</span><span class="food-dots"></span><span class="food-price">₹60</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Masala Omelette</span><span class="food-dots"></span><span class="food-price">₹80</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Bun Omelette</span><span class="food-dots"></span><span class="food-price">₹80</span></div>
+            </div>
+            <div>
+                <div class="food-cat-title">Snacks &amp; Starters</div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Veg Steamed Momos</span><span class="food-dots"></span><span class="food-price">₹120</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Veg Fried Momos</span><span class="food-dots"></span><span class="food-price">₹150</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Aloo Pyaj Pakoda</span><span class="food-dots"></span><span class="food-price">₹150</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Paneer Pakoda</span><span class="food-dots"></span><span class="food-price">₹200</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Mix Pakoda</span><span class="food-dots"></span><span class="food-price">₹250</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Chilli Potato</span><span class="food-dots"></span><span class="food-price">₹280</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Chilli Paneer</span><span class="food-dots"></span><span class="food-price">₹390</span></div>
+            </div>
+            <div>
+                <div class="food-cat-title">Sandwiches</div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Veg Sandwich</span><span class="food-dots"></span><span class="food-price">₹120</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Veg Cheese Sandwich</span><span class="food-dots"></span><span class="food-price">₹150</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Egg Sandwich</span><span class="food-dots"></span><span class="food-price">₹150</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Egg Cheese Sandwich</span><span class="food-dots"></span><span class="food-price">₹180</span></div>
+                <div class="food-cat-title" style="margin-top:1.8rem">Mains &amp; Thali</div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Kumaoni Thali</span><span class="food-dots"></span><span class="food-price">₹399</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Chicken Curry</span><span class="food-dots"></span><span class="food-price">₹450</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot nonveg"></span>Kadhai Chicken</span><span class="food-dots"></span><span class="food-price">₹500</span></div>
+            </div>
+            <div>
+                <div class="food-cat-title">Beverages &amp; Shakes</div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Fresh Lime Water</span><span class="food-dots"></span><span class="food-price">₹80</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Fresh Lime Soda</span><span class="food-dots"></span><span class="food-price">₹120</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Buransh Juice</span><span class="food-dots"></span><span class="food-price">₹120</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Cold Coffee</span><span class="food-dots"></span><span class="food-price">₹120</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Chocolate Shake</span><span class="food-dots"></span><span class="food-price">₹150</span></div>
+                <div class="food-row-item"><span class="food-name"><span class="veg-dot"></span>Oreo Shake</span><span class="food-dots"></span><span class="food-price">₹150</span></div>
+            </div>
         </div>
-        <div class="gallery-grid fade-in">
-            <div class="gcard g1">🍛
-                <div class="goverlay">
-                    <div class="goverlay-icon">Dal Tadka</div>
-                </div>
-                <div class="gallery-tag">Signature Dal</div>
-            </div>
-            <div class="gcard g2">🫖
-                <div class="goverlay">
-                    <div class="goverlay-icon">Pahadi Chai</div>
-                </div>
-                <div class="gallery-tag">Morning Chai</div>
-            </div>
-            <div class="gcard g3">🌄
-                <div class="goverlay">
-                    <div class="goverlay-icon">Mountain View</div>
-                </div>
-                <div class="gallery-tag">Café Ambience</div>
-            </div>
-            <div class="gcard g4">🍞
-                <div class="goverlay">
-                    <div class="goverlay-icon">Fresh Roti</div>
-                </div>
-                <div class="gallery-tag">Homemade Bread</div>
-            </div>
-            <div class="gcard g5">🥘
-                <div class="goverlay">
-                    <div class="goverlay-icon">Seasonal Sabzi</div>
-                </div>
-                <div class="gallery-tag">Farm Fresh</div>
-            </div>
-        </div>
+        <p class="menu-note" style="color:rgba(245,242,235,.4)">Menu and prices may vary seasonally based on availability of fresh local ingredients. To order or reserve a table, call us at <a style="color:var(--gold)" href="tel:+919520232933">+91 95202 32933</a>.</p>
     </section>
 
-    <!-- REVIEWS -->
-    <section id="reviews">
-        <div class="reviews-header fade-in">
-            <div class="reviews-label">Guest Stories</div>
-            <h2 class="reviews-h2">What Our Guests<br><em style="font-style:italic">Are Saying</em></h2>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card fade-in">
-                <div class="review-quote">"</div>
-                <div class="review-text">The dal and roti took me straight back to my grandmother's kitchen. I didn't expect to find food this authentic in a café setting. Absolutely magical experience amidst the mountains.</div>
-                <div class="review-footer">
-                    <div class="review-avatar">PK</div>
-                    <div>
-                        <div class="review-name">Priya Kapoor</div>
-                        <div class="review-loc">Delhi · Traveler</div>
-                    </div>
-                    <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-                </div>
-            </div>
-            <div class="review-card fade-in">
-                <div class="review-quote">"</div>
-                <div class="review-text">Stumbled upon Tukkebaz Rasoi while trekking near Supi. The chai was unlike anything I've had — brewed with local herbs, served with a smile. The café itself feels like a warm hug.</div>
-                <div class="review-footer">
-                    <div class="review-avatar">AS</div>
-                    <div>
-                        <div class="review-name">Arjun Singh</div>
-                        <div class="review-loc">Dehradun · Hiker</div>
-                    </div>
-                    <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-                </div>
-            </div>
-            <div class="review-card fade-in">
-                <div class="review-quote">"</div>
-                <div class="review-text">Every detail — the wooden décor, the mountain air, the freshly made food — tells you this place is built with genuine love. My family's new favourite stop in Uttarakhand without question.</div>
-                <div class="review-footer">
-                    <div class="review-avatar">RM</div>
-                    <div>
-                        <div class="review-name">Rekha Mehta</div>
-                        <div class="review-loc">Mumbai · Food Blogger</div>
-                    </div>
-                    <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <p class="menu-note">All prices in INR (₹), inclusive of applicable taxes. For bookings, orders, or queries, reach us on WhatsApp at
+        <a style="color:var(--gold)" href="https://wa.me/919520232933" target="_blank">+91 95202 32933</a>.</p>
 
-    <!-- INSTAGRAM -->
-    <section id="instagram">
-        <div class="ig-label fade-in">Follow Our Journey</div>
-        <h2 class="ig-h2 fade-in">We're Live on<br><em style="font-style:italic;font-family:'Cormorant Garamond',serif">Instagram</em></h2>
-        <p class="ig-sub fade-in">Daily specials, behind-the-scenes kitchen moments, and mountain sunrise shots.</p>
-        <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="ig-handle fade-in">@tukkebaz_rasoi</a>
-        <div class="ig-grid fade-in">
-            <div class="ig-post">🍛
-                <div class="ig-hover">
-                    <div class="ig-likes">♥ 142</div>
-                </div>
-            </div>
-            <div class="ig-post">☕
-                <div class="ig-hover">
-                    <div class="ig-likes">♥ 98</div>
-                </div>
-            </div>
-            <div class="ig-post">🌄
-                <div class="ig-hover">
-                    <div class="ig-likes">♥ 234</div>
-                </div>
-            </div>
-            <div class="ig-post">🥘
-                <div class="ig-hover">
-                    <div class="ig-likes">♥ 167</div>
-                </div>
-            </div>
-            <div class="ig-post">🫖
-                <div class="ig-hover">
-                    <div class="ig-likes">♥ 89</div>
-                </div>
-            </div>
-            <div class="ig-post">🌿
-                <div class="ig-hover">
-                    <div class="ig-likes">♥ 201</div>
-                </div>
-            </div>
-        </div>
-        <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="ig-btn">Follow on Instagram →</a>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="fade-in-left">
-            <div class="contact-label">Come Find Us</div>
-            <h2 class="contact-h2">Visit Tukkebaz<br><em style="font-style:italic;font-family:'Cormorant Garamond',serif">Rasoi</em></h2>
-            <p class="contact-p">We're nestled in the quiet village of Supi, near The Lookout Cottage — a short, scenic drive through the Kumaon hills. Come hungry.</p>
-            <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <div>
-                    <div class="contact-detail-label">Address</div>
-                    <div class="contact-detail-val">Vill Supi, near The Lookout Cottage<br>Post Supi, Uttarakhand 263138</div>
-                </div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">📞</div>
-                <div>
-                    <div class="contact-detail-label">Phone / WhatsApp</div>
-                    <div class="contact-detail-val"><a href="tel:+919520232933" style="color:var(--gold)">+91 9520232933</a></div>
-                </div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">📸</div>
-                <div>
-                    <div class="contact-detail-label">Instagram</div>
-                    <div class="contact-detail-val"><a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" style="color:var(--gold)">@tukkebaz_rasoi</a></div>
-                </div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">🕐</div>
-                <div style="flex:1">
-                    <div class="contact-detail-label">Opening Hours</div>
-                    <div class="hours-grid" style="margin-top:.5rem">
-                        <span class="hours-day">Monday – Friday</span><span class="hours-time">8:00 AM – 9:00 PM</span>
-                        <span class="hours-day">Saturday</span><span class="hours-time">7:30 AM – 10:00 PM</span>
-                        <span class="hours-day">Sunday</span><span class="hours-time">8:00 AM – 8:00 PM</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="fade-in">
-            <div class="map-container">
-                <div class="map-placeholder">
-                    🗺️
-                    <div class="map-address">Vill Supi, near The Lookout Cottage<br>Post Supi, Uttarakhand 263138, India</div>
-                    <a href="https://www.google.com/maps/place/Tukkebaz+Rasoi+Cafe+And+Restro/@29.4417588,79.6179585,758m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39a0bd4bffe6859d:0x7c19eb198402371!8m2!3d29.4417588!4d79.6179585!16s%2Fg%2F11lcyk72l6!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank" class="map-open-btn">Open in Google Maps →</a>
-                </div>
-            </div>
-            <div style="margin-top:2rem;padding:1.8rem;background:var(--soft-black);color:var(--cream)">
-                <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Quick Contact</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:1rem;font-style:italic;color:rgba(245,242,235,.8)">Have a question or want to reserve a spot?</div>
-                <a href="https://wa.me/919520232933" target="_blank" class="btn-primary" style="display:inline-block;margin-right:.8rem;margin-bottom:.8rem">WhatsApp Us</a>
-                <a href="https://www.instagram.com/tukkebaz_rasoi/" target="_blank" class="btn-outline" style="display:inline-block;color:var(--cream);border-color:rgba(245,242,235,.3)">Instagram DM</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- POLICIES -->
-    <section id="policies">
-        <div style="margin-bottom:2rem">
-            <div style="font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Legal</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--cream);font-weight:300">Our Policies</div>
-        </div>
-        <div class="policies-tabs">
-            <div class="ptab active" onclick="showPolicy('privacy')">Privacy Policy</div>
-            <div class="ptab" onclick="showPolicy('terms')">Terms of Service</div>
-            <div class="ptab" onclick="showPolicy('refund')">Refund Policy</div>
-        </div>
-        <div id="privacy" class="policy-content active">
-            <h3>Privacy Policy — Tukkebaz Rasoi</h3>
-            <p><em>Last updated: January 2025</em></p>
-            <h3>Information We Collect</h3>
-            <p>When you contact us via phone, WhatsApp, or Instagram, we may collect your name, phone number, and any messages you share. We use this information solely to respond to your inquiries and process reservations or orders.</p>
-            <h3>How We Use Your Information</h3>
-            <p>Your personal information is used only to communicate with you about your queries, orders, or reservations at Tukkebaz Rasoi. We do not sell, rent, or share your personal data with any third parties for marketing purposes.</p>
-            <h3>Data Retention</h3>
-            <p>We retain contact information only for as long as necessary to fulfill your service request. You may request deletion of your data at any time by contacting us directly.</p>
-            <h3>Third-Party Platforms</h3>
-            <p>Our Instagram page and WhatsApp Business account are operated under the respective privacy policies of Meta Platforms, Inc. Please review their policies for information on data handling on those platforms.</p>
-            <h3>Contact Us</h3>
-            <p>For any privacy concerns, reach us at +91 9520232933 or via Instagram @tukkebaz_rasoi.</p>
-        </div>
-        <div id="terms" class="policy-content">
-            <h3>Terms of Service — Tukkebaz Rasoi</h3>
-            <p><em>Last updated: January 2025</em></p>
-            <h3>General</h3>
-            <p>By visiting Tukkebaz Rasoi or placing an order through any of our channels (in-person, WhatsApp, Instagram), you agree to abide by these terms. We reserve the right to refuse service to anyone for reasons we deem appropriate.</p>
-            <h3>Food & Allergens</h3>
-            <p>While we take all reasonable care, our kitchen handles a range of ingredients including nuts, dairy, gluten, and spices. Please inform us of any dietary restrictions or allergies before ordering. We cannot guarantee a completely allergen-free
-                environment.
-            </p>
-            <h3>Reservations</h3>
-            <p>Reservations can be made via WhatsApp or Instagram DM. A reservation is confirmed only upon our explicit acknowledgment. We recommend booking in advance for weekends and holidays.</p>
-            <h3>Pricing</h3>
-            <p>All prices are in Indian Rupees (INR) and are inclusive of applicable taxes unless stated otherwise. Prices may change without prior notice due to seasonal availability of ingredients.</p>
-            <h3>Conduct</h3>
-            <p>We maintain a warm, respectful environment for all guests. Any form of disrespectful or abusive behaviour toward our staff or other guests may result in being asked to leave the premises.</p>
-        </div>
-        <div id="refund" class="policy-content">
-            <h3>Refund Policy — Tukkebaz Rasoi</h3>
-            <p><em>Last updated: January 2025</em></p>
-            <h3>Dine-In Orders</h3>
-            <p>If you are unsatisfied with your food, please bring it to our attention immediately. We will do our best to resolve the issue by replacing the dish or offering a suitable alternative. Refunds for dine-in orders are at the discretion of the
-                café management.</p>
-            <h3>Takeaway & Pre-Orders</h3>
-            <p>Once a takeaway order has been prepared, we are unable to offer refunds unless the food is found to be unfit for consumption. In such cases, please contact us within 30 minutes of receiving your order.</p>
-            <h3>Cancellation Policy</h3>
-            <p>Reservations cancelled more than 2 hours before the scheduled time will not incur any charges. Cancellations made within 2 hours of the reservation may not be refundable if special preparation has been undertaken.</p>
-            <h3>How to Request a Refund</h3>
-            <p>Contact us directly via WhatsApp at +91 9520232933 or visit us in person. We aim to resolve all concerns fairly and promptly — your satisfaction matters to us.</p>
-            <h3>No Refund Circumstances</h3>
-            <p>Refunds will not be issued for change of mind after food has been served, or for orders that have been fully consumed.</p>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -1682,11 +1693,11 @@
             <div>
                 <div class="footer-col-title">Visit</div>
                 <ul class="footer-links">
-                    <li><a href="#about">Our Story</a></li>
-                    <li><a href="#experience">The Experience</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Find Us</a></li>
+                    <li><a href="index.html#about">Our Story</a></li>
+                    <li><a href="index.html#experience">The Experience</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li><a href="index.html#contact">Find Us</a></li>
                 </ul>
             </div>
             <div>
@@ -1701,9 +1712,9 @@
             <div>
                 <div class="footer-col-title">Legal</div>
                 <ul class="footer-links">
-                    <li><a href="#privacy" onclick="showPolicy('privacy')">Privacy Policy</a></li>
-                    <li><a href="#terms" onclick="showPolicy('terms')">Terms of Service</a></li>
-                    <li><a href="#refund" onclick="showPolicy('refund')">Refund Policy</a></li>
+                    <li><a href="index.html#privacy">Privacy Policy</a></li>
+                    <li><a href="index.html#terms">Terms of Service</a></li>
+                    <li><a href="index.html#refund">Refund Policy</a></li>
                 </ul>
             </div>
         </div>
@@ -1744,17 +1755,6 @@
             tabs[map[id]].classList.add('active');
         }
 
-        // Open the correct policy tab when arriving via a deep link (e.g. pricing.html -> index.html#privacy)
-        function openPolicyFromHash() {
-            const id = window.location.hash.replace('#', '');
-            if (['privacy', 'terms', 'refund'].includes(id)) {
-                showPolicy(id);
-                document.getElementById('policies').scrollIntoView();
-            }
-        }
-        window.addEventListener('load', openPolicyFromHash);
-        window.addEventListener('hashchange', openPolicyFromHash);
-
         const ham = document.getElementById('ham');
         let mobileOpen = false;
         ham.addEventListener('click', () => {
@@ -1768,5 +1768,4 @@
         });
     </script>
 </body>
-
 </html>
